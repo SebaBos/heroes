@@ -1,1 +1,18 @@
-<p>hero-detail works!</p>
+<div *ngIf="hero">
+
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+  </div>
+  <div>
+    <span>IQ: </span>{{hero.iq}}
+    <mat-slider min="1" max="200" step="1" discrete>
+      <input matSliderThumb [(ngModel)]="hero.iq">
+    </mat-slider>
+  </div>
+
+  <button type="button" (click)="goBack()">Go back</button>
+  <button type="button" (click)="save()">Save</button>
+</div>

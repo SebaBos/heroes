@@ -1,1 +1,34 @@
-<p>heroes-table works!</p>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+          sortActionDescription="Sort by ID"> ID </th>
+      <td mat-cell *matCellDef="let hero"> {{hero.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+          sortActionDescription="Sort by name"> Name </th>
+      <td mat-cell *matCellDef="let hero"> {{hero.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="iq">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header
+          sortActionDescription="Sort by IQ"> IQ </th>
+      <td mat-cell *matCellDef="let hero"> {{hero.iq}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator class="paginator" #paginator [length]="heroesLength" [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons></mat-paginator>
+
+</div>
+
+<div id="list-format-container" fxLayoutAlign="center">
+  <a routerLink="/heroes">
+    <button id="btn-list" type="button">View List Format</button>
+  </a>
+</div>

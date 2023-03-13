@@ -1,1 +1,28 @@
-<h2>{{hero}}</h2>
+<h2>My Heroes</h2>
+
+<div>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName>
+  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">Add hero</button>
+</div>
+
+<ul class="heroes">
+  <div fxLayout="row wrap" fxLayoutGap.gt-xs="50px">
+  <li fxLayout="row nowrap" fxFlex="0 1 calc(33.3% - 50px)" fxFlex.sm="0 1 calc(50% - 50px)" fxFlex.xs="100%"
+      *ngFor="let hero of heroes | paginate: { itemsPerPage: 12, currentPage: page }">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </a>
+    <button type="button" class="delete" title="delete hero" (click)="delete(hero)">x</button>
+  </li>
+  </div>
+</ul>
+
+<pagination-controls class="pagination" (pageChange) = "page = $event" fxLayoutAlign="center"></pagination-controls>
+
+<div id="table-format-container" fxLayoutAlign="center">
+  <a routerLink="/heroes-table">
+    <button id="btn-table" type="button">View Table Format</button>
+  </a>
+</div>

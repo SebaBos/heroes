@@ -12,8 +12,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$angular-tour-of-heroes-primary: mat.define-palette(mat.$indigo-palette);
-$angular-tour-of-heroes-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$angular-tour-of-heroes-primary: mat.define-palette(mat.$orange-palette, 900);
+$angular-tour-of-heroes-accent: mat.define-palette(mat.$brown-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $angular-tour-of-heroes-warn: mat.define-palette(mat.$red-palette);
@@ -28,8 +28,50 @@ $angular-tour-of-heroes-theme: mat.define-light-theme((
   )
 ));
 
+$angular-tour-of-heroes-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $angular-tour-of-heroes-primary,
+    accent: $angular-tour-of-heroes-accent,
+    warn: $angular-tour-of-heroes-warn,
+  )
+));
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($angular-tour-of-heroes-theme);
+
+.darkTheme {
+  @include mat.all-component-colors($angular-tour-of-heroes-dark-theme);
+
+  h1 {
+    color: #f14918 !important;
+  }
+
+  h2, label {
+    color: white !important;
+  }
+
+  .ngx-pagination {
+    li:not(.disabled) {
+      a {
+        color: white !important;
+      }
+
+      :hover {
+        background-color: #ab1010 !important;
+      }
+    }
+
+    li.disabled {
+        color: grey !important;
+    }
+  }
+
+  mat-paginator button[disabled] {
+    background-color: #504e4e;
+  }
+
+}
+
 

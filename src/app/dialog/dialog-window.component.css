@@ -1,0 +1,14 @@
+button:hover {
+  color: white;
+  background-color: #ab1010;
+}
+
+h2 {
+  color: #ab1010 !important;
+  font-weight: bold !important;
+  font-size: 1.5em !important;
+}
+
+.mat-divider {
+  border-top-color: red;
+}
